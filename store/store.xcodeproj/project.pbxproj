@@ -13,6 +13,14 @@
 		A39EC13826963BFC00029D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39EC13626963BFC00029D52 /* Main.storyboard */; };
 		A39EC13A26963C0000029D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A39EC13926963C0000029D52 /* Assets.xcassets */; };
 		A39EC13D26963C0000029D52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39EC13B26963C0000029D52 /* LaunchScreen.storyboard */; };
+		A39EC1462696433C00029D52 /* BaseTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1452696433C00029D52 /* BaseTabBarVC.swift */; };
+		A39EC1492696543700029D52 /* BuscaVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1482696543700029D52 /* BuscaVc.swift */; };
+		A39EC14D2696598400029D52 /* BuscaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC14C2696598400029D52 /* BuscaCell.swift */; };
+		A39EC15026965AB000029D52 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC14F26965AB000029D52 /* UIView.swift */; };
+		A39EC15226965BAF00029D52 /* UimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC15126965BAF00029D52 /* UimageView.swift */; };
+		A39EC15426965EB000029D52 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC15326965EB000029D52 /* UILabel.swift */; };
+		A39EC1562696636700029D52 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1552696636700029D52 /* UIButton.swift */; };
+		A39EC1582696645400029D52 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1572696645400029D52 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		A39EC13926963C0000029D52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A39EC13C26963C0000029D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A39EC13E26963C0000029D52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A39EC1452696433C00029D52 /* BaseTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarVC.swift; sourceTree = "<group>"; };
+		A39EC1482696543700029D52 /* BuscaVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscaVc.swift; sourceTree = "<group>"; };
+		A39EC14C2696598400029D52 /* BuscaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscaCell.swift; sourceTree = "<group>"; };
+		A39EC14F26965AB000029D52 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = ../../../../Downloads/UIView.swift; sourceTree = "<group>"; };
+		A39EC15126965BAF00029D52 /* UimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UimageView.swift; sourceTree = "<group>"; };
+		A39EC15326965EB000029D52 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		A39EC1552696636700029D52 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		A39EC1572696645400029D52 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,9 @@
 		A39EC12F26963BFC00029D52 /* store */ = {
 			isa = PBXGroup;
 			children = (
+				A39EC14E26965A8300029D52 /* Lib */,
+				A39EC14A2696593200029D52 /* View */,
+				A39EC1442696430900029D52 /* Controler */,
 				A39EC13026963BFC00029D52 /* AppDelegate.swift */,
 				A39EC13226963BFC00029D52 /* SceneDelegate.swift */,
 				A39EC13426963BFC00029D52 /* ViewController.swift */,
@@ -65,6 +84,51 @@
 				A39EC13E26963C0000029D52 /* Info.plist */,
 			);
 			path = store;
+			sourceTree = "<group>";
+		};
+		A39EC1442696430900029D52 /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				A39EC1472696541A00029D52 /* Busca */,
+				A39EC1452696433C00029D52 /* BaseTabBarVC.swift */,
+			);
+			path = Controler;
+			sourceTree = "<group>";
+		};
+		A39EC1472696541A00029D52 /* Busca */ = {
+			isa = PBXGroup;
+			children = (
+				A39EC1482696543700029D52 /* BuscaVc.swift */,
+			);
+			path = Busca;
+			sourceTree = "<group>";
+		};
+		A39EC14A2696593200029D52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A39EC14B2696595F00029D52 /* Busca */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A39EC14B2696595F00029D52 /* Busca */ = {
+			isa = PBXGroup;
+			children = (
+				A39EC14C2696598400029D52 /* BuscaCell.swift */,
+			);
+			path = Busca;
+			sourceTree = "<group>";
+		};
+		A39EC14E26965A8300029D52 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A39EC14F26965AB000029D52 /* UIView.swift */,
+				A39EC15126965BAF00029D52 /* UimageView.swift */,
+				A39EC15326965EB000029D52 /* UILabel.swift */,
+				A39EC1552696636700029D52 /* UIButton.swift */,
+				A39EC1572696645400029D52 /* UIColor.swift */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +201,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39EC14D2696598400029D52 /* BuscaCell.swift in Sources */,
 				A39EC13526963BFC00029D52 /* ViewController.swift in Sources */,
+				A39EC1492696543700029D52 /* BuscaVc.swift in Sources */,
+				A39EC15026965AB000029D52 /* UIView.swift in Sources */,
+				A39EC15426965EB000029D52 /* UILabel.swift in Sources */,
+				A39EC1562696636700029D52 /* UIButton.swift in Sources */,
+				A39EC1462696433C00029D52 /* BaseTabBarVC.swift in Sources */,
+				A39EC1582696645400029D52 /* UIColor.swift in Sources */,
 				A39EC13126963BFC00029D52 /* AppDelegate.swift in Sources */,
+				A39EC15226965BAF00029D52 /* UimageView.swift in Sources */,
 				A39EC13326963BFC00029D52 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
