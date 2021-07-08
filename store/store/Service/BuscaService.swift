@@ -13,6 +13,16 @@ class BuscaService {
     
     func buscaApps (texto: String) {
         
-        print("BuscaService \(texto)")
+        guard let url = URL(string: "http://localhost/app-store/api/v1//apps?search=face") else {return}
+        
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            
+            if let err = err {
+                print(err)
+                return
+            }
+            
+            print(String(data: data!, encoding:  .utf8))
+        }.resume()
     }
 }
