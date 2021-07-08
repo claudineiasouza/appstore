@@ -11,25 +11,22 @@ class BuscaService {
     
     static let shared = BuscaService()
     
-    func buscaApps (texto: String) {
+    func buscaApps (texto: String, completion: @escaping ([App]?, Error?) -> () ) {
         
-        guard let url = URL(string: "http://localhost/app-store/api/v1//apps?search=face") else {return}
+        guard let url = URL(string: "http://localhost/app-store/api/v1//apps?search=\(texto)") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, res, err) in
             
             if let err = err {
-                print(err)
+                completion(nil, err)
                 return
             }
-            
             do {
-                
                 guard let data = data else {return}
                 let apps = try JSONDecoder().decode([App].self, from: data)
-                print(apps)
-                
+                completion(apps, nil)
             } catch let err {
-                    print(err)
+                completion(nil, err)
                     return
                 }
         }.resume()

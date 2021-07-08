@@ -13,6 +13,8 @@ class BuscaVC: UITableViewController, UISearchBarDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
     
+    var apps: [App] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,14 @@ class BuscaVC: UITableViewController, UISearchBarDelegate {
 
 extension BuscaVC {
     func buscaApps (texto: String) {
-        BuscaService.shared.buscaApps(texto: texto)
+        BuscaService.shared.buscaApps(texto: texto) { (apps, err) in
+            if let apps = apps {
+                DispatchQueue.main.async {
+                    self.apps = apps
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -45,10 +54,11 @@ extension BuscaVC {
         return .init(tableView.bounds.width * 0.8)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.apps.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BuscaCell
+        cell.app = self.apps[indexPath.item]
         return cell
     }
 }
