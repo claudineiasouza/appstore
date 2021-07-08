@@ -7,14 +7,36 @@
 
 import UIKit
 
-class BuscaVC: UITableViewController {
+class BuscaVC: UITableViewController, UISearchBarDelegate {
     
     let cellId = "cellId"
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(BuscaCell.self, forCellReuseIdentifier: cellId)
+        
+        self.configurarSearchBar()
+    }
+    
+    func configurarSearchBar () {
+        navigationItem.searchController = self.searchController
+        
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "App Store"
+        self.searchController.searchBar.delegate = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.buscaApps(texto: searchText)
+    }
+}
+
+extension BuscaVC {
+    func buscaApps (texto: String) {
+        BuscaService.shared.buscaApps(texto: texto)
     }
 }
 
