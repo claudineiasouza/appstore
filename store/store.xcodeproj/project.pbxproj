@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		A39EC1582696645400029D52 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1572696645400029D52 /* UIColor.swift */; };
 		A39EC15B269679D000029D52 /* BuscaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC15A269679D000029D52 /* BuscaService.swift */; };
 		A39EC15E2696821D00029D52 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC15D2696821D00029D52 /* App.swift */; };
+		A39EC1612697984E00029D52 /* AppsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1602697984E00029D52 /* AppsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A39EC1572696645400029D52 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A39EC15A269679D000029D52 /* BuscaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscaService.swift; sourceTree = "<group>"; };
 		A39EC15D2696821D00029D52 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		A39EC1602697984E00029D52 /* AppsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsVC.swift; sourceTree = "<group>"; };
 		E271C412043B71E926D11C8C /* Pods_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 		A39EC1442696430900029D52 /* Controler */ = {
 			isa = PBXGroup;
 			children = (
+				A39EC15F2697969400029D52 /* Apps */,
 				A39EC1472696541A00029D52 /* Busca */,
 				A39EC1452696433C00029D52 /* BaseTabBarVC.swift */,
 			);
@@ -168,13 +171,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A39EC15F2697969400029D52 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				A39EC1602697984E00029D52 /* AppsVC.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
 		B0E88D374EFD1D25AA9CF125 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				710E0FB94B544989CE152FCC /* Pods-store.debug.xcconfig */,
 				3413D72C602D427A6E85975C /* Pods-store.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -296,6 +306,7 @@
 				A39EC14D2696598400029D52 /* BuscaCell.swift in Sources */,
 				A39EC13526963BFC00029D52 /* ViewController.swift in Sources */,
 				A39EC1492696543700029D52 /* BuscaVc.swift in Sources */,
+				A39EC1612697984E00029D52 /* AppsVC.swift in Sources */,
 				A39EC15026965AB000029D52 /* UIView.swift in Sources */,
 				A39EC15426965EB000029D52 /* UILabel.swift in Sources */,
 				A39EC1562696636700029D52 /* UIButton.swift in Sources */,
