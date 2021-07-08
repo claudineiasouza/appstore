@@ -22,7 +22,16 @@ class BuscaService {
                 return
             }
             
-            print(String(data: data!, encoding:  .utf8))
+            do {
+                
+                guard let data = data else {return}
+                let apps = try JSONDecoder().decode([App].self, from: data)
+                print(apps)
+                
+            } catch let err {
+                    print(err)
+                    return
+                }
         }.resume()
     }
 }
