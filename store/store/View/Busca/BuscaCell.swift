@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BuscaCell: UITableViewCell {
     
@@ -13,19 +14,22 @@ class BuscaCell: UITableViewCell {
         didSet {
             tituloLabel.text = app.nome
             empresaLabel.text = app.empresa
+       
+            iconeImageView.sd_setImage(with: URL(string: app.iconeUrl), completed: nil)
             
-            DispatchQueue.main.async {
-                if let url = URL(string: self.app.iconeUrl) {
-                    do {
-                        let data = try Data(contentsOf: url)
-                        self.iconeImageView.image = UIImage(data: data)
-                    } catch let err {
-                            print(err)
-                        }
-                    }
+            if let screenshotUrls = app.screenshotUrls {
+                if screenshotUrls.count > 0 {
+                    self.screenshot1ImageView.sd_setImage(with: URL(string: screenshotUrls[0]), completed: nil)
                 }
+                if screenshotUrls.count > 1 {
+                self.screenshot2ImageView.sd_setImage(with: URL(string: screenshotUrls[1]), completed: nil)
             }
-        }
+                if screenshotUrls.count > 2 {
+            self.screenshot3ImageView.sd_setImage(with: URL(string: screenshotUrls[2]), completed: nil)
+           }
+         }
+      }
+    }
 
     let iconeImageView: UIImageView = .iconeImageView()
     let tituloLabel: UILabel = .textLabel(text: "App nome", fontSize: 18, numberOfLines: 2)

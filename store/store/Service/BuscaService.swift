@@ -13,7 +13,7 @@ class BuscaService {
     
     func buscaApps (texto: String, completion: @escaping ([App]?, Error?) -> () ) {
         
-        guard let url = URL(string: "http://localhost/app-store/api/v1//apps?search=\(texto)") else {return}
+        guard let url = URL(string: "http://192.168.0.27/app-store/api/v1//apps?search=\(texto)") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, res, err) in
             
