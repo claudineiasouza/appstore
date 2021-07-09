@@ -18,7 +18,10 @@ class AppsHeader: UICollectionReusableView, UICollectionViewDelegate, UICollecti
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let layout = UICollectionViewFlowLayout()
+       // let layout = UICollectionViewFlowLayout()
+        let layout = SnappingLayout()
+        layout.scrollDirection = .horizontal
+        
         layout.scrollDirection = .horizontal
         
         collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
@@ -26,6 +29,8 @@ class AppsHeader: UICollectionReusableView, UICollectionViewDelegate, UICollecti
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.decelerationRate = .fast
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionView)

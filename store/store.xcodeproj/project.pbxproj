@@ -10,6 +10,9 @@
 		2664F385AE3A81A154054B10 /* Pods_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E271C412043B71E926D11C8C /* Pods_store.framework */; };
 		A36D862B2698B1F300CA1478 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D862A2698B1F300CA1478 /* AppsHeaderCell.swift */; };
 		A36D862D2698B71B00CA1478 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D862C2698B71B00CA1478 /* AppService.swift */; };
+		A36D862F2698C51800CA1478 /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D862E2698C51800CA1478 /* SnappingLayout.swift */; };
+		A36D86312698C73500CA1478 /* AppsGrupoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D86302698C73500CA1478 /* AppsGrupoCell.swift */; };
+		A36D86332698CA8100CA1478 /* AppsGrupoHorizontalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D86322698CA8100CA1478 /* AppsGrupoHorizontalVC.swift */; };
 		A39EC13126963BFC00029D52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13026963BFC00029D52 /* AppDelegate.swift */; };
 		A39EC13326963BFC00029D52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13226963BFC00029D52 /* SceneDelegate.swift */; };
 		A39EC13526963BFC00029D52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13426963BFC00029D52 /* ViewController.swift */; };
@@ -35,6 +38,9 @@
 		710E0FB94B544989CE152FCC /* Pods-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-store.debug.xcconfig"; path = "Target Support Files/Pods-store/Pods-store.debug.xcconfig"; sourceTree = "<group>"; };
 		A36D862A2698B1F300CA1478 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
 		A36D862C2698B71B00CA1478 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		A36D862E2698C51800CA1478 /* SnappingLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnappingLayout.swift; path = ../../../../Downloads/SnappingLayout.swift; sourceTree = "<group>"; };
+		A36D86302698C73500CA1478 /* AppsGrupoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGrupoCell.swift; sourceTree = "<group>"; };
+		A36D86322698CA8100CA1478 /* AppsGrupoHorizontalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGrupoHorizontalVC.swift; sourceTree = "<group>"; };
 		A39EC12D26963BFC00029D52 /* store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39EC13026963BFC00029D52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A39EC13226963BFC00029D52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				A36D862A2698B1F300CA1478 /* AppsHeaderCell.swift */,
+				A36D86302698C73500CA1478 /* AppsGrupoCell.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 		A39EC14E26965A8300029D52 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A36D862E2698C51800CA1478 /* SnappingLayout.swift */,
 				A39EC14F26965AB000029D52 /* UIView.swift */,
 				A39EC15126965BAF00029D52 /* UimageView.swift */,
 				A39EC15326965EB000029D52 /* UILabel.swift */,
@@ -192,6 +200,7 @@
 			children = (
 				A39EC1602697984E00029D52 /* AppsVC.swift */,
 				A39EC1622697A23400029D52 /* AppsHeader.swift */,
+				A36D86322698CA8100CA1478 /* AppsGrupoHorizontalVC.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -332,9 +341,12 @@
 				A39EC15B269679D000029D52 /* BuscaService.swift in Sources */,
 				A39EC13126963BFC00029D52 /* AppDelegate.swift in Sources */,
 				A36D862B2698B1F300CA1478 /* AppsHeaderCell.swift in Sources */,
+				A36D86312698C73500CA1478 /* AppsGrupoCell.swift in Sources */,
+				A36D862F2698C51800CA1478 /* SnappingLayout.swift in Sources */,
 				A39EC1632697A23400029D52 /* AppsHeader.swift in Sources */,
 				A39EC15226965BAF00029D52 /* UimageView.swift in Sources */,
 				A39EC13326963BFC00029D52 /* SceneDelegate.swift in Sources */,
+				A36D86332698CA8100CA1478 /* AppsGrupoHorizontalVC.swift in Sources */,
 				A36D862D2698B71B00CA1478 /* AppService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
