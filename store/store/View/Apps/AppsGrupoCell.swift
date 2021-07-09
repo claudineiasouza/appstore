@@ -16,8 +16,6 @@ class AppsGrupoCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .blue
-        
         addSubview(tituloLabel)
         tituloLabel.preencher(
             top: topAnchor,
