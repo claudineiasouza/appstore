@@ -13,6 +13,8 @@ class AppsHeader: UICollectionReusableView, UICollectionViewDelegate, UICollecti
     
     var collectionView: UICollectionView!
     
+    var appsEmDestaque: [AppDestaque] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -24,7 +26,7 @@ class AppsHeader: UICollectionReusableView, UICollectionViewDelegate, UICollecti
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionView)
         collectionView.preencherSuperview()
@@ -36,11 +38,11 @@ class AppsHeader: UICollectionReusableView, UICollectionViewDelegate, UICollecti
 
 extension AppsHeader {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.appsEmDestaque.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .yellow
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderCell
+        cell.appDestaque = self.appsEmDestaque[indexPath.item]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
