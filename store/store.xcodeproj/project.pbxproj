@@ -25,6 +25,7 @@
 		A39EC15B269679D000029D52 /* BuscaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC15A269679D000029D52 /* BuscaService.swift */; };
 		A39EC15E2696821D00029D52 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC15D2696821D00029D52 /* App.swift */; };
 		A39EC1612697984E00029D52 /* AppsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1602697984E00029D52 /* AppsVC.swift */; };
+		A39EC1632697A23400029D52 /* AppsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC1622697A23400029D52 /* AppsHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		A39EC15A269679D000029D52 /* BuscaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscaService.swift; sourceTree = "<group>"; };
 		A39EC15D2696821D00029D52 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A39EC1602697984E00029D52 /* AppsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsVC.swift; sourceTree = "<group>"; };
+		A39EC1622697A23400029D52 /* AppsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeader.swift; sourceTree = "<group>"; };
 		E271C412043B71E926D11C8C /* Pods_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				A39EC1602697984E00029D52 /* AppsVC.swift */,
+				A39EC1622697A23400029D52 /* AppsHeader.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				A39EC1582696645400029D52 /* UIColor.swift in Sources */,
 				A39EC15B269679D000029D52 /* BuscaService.swift in Sources */,
 				A39EC13126963BFC00029D52 /* AppDelegate.swift in Sources */,
+				A39EC1632697A23400029D52 /* AppsHeader.swift in Sources */,
 				A39EC15226965BAF00029D52 /* UimageView.swift in Sources */,
 				A39EC13326963BFC00029D52 /* SceneDelegate.swift in Sources */,
 			);
