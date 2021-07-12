@@ -13,6 +13,7 @@ class AppsVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let headerId = "headerId"
     
     var appsEmDestaque: [AppDestaque] = []
+    var appsGrupos: [AppGrupo] = []
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -30,6 +31,7 @@ class AppsVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         collectionView.register(AppsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
         self.buscaAppsEmDestaque()
+        self.buscaGrupos()
     }
     
 }
@@ -50,7 +52,21 @@ extension AppsVC {
             }
         }
     }
-}
+    func buscaGrupos () {
+        AppService.shared.buscaGrupo(tipo: "apps-que-amamos") { (grupo, err) in
+            if let err = err {
+                print(err)
+                return
+            }
+            if let grupo = grupo {
+                DispatchQueue.main.async {
+                    self.appsGrupos.append(grupo)
+                    self.collectionView.reloadData()
+                }
+              }
+            }
+        }
+    }
 
 extension AppsVC {
     
@@ -70,7 +86,7 @@ extension AppsVC {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.appsGrupos.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGrupoCell

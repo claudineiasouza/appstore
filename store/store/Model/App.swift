@@ -24,3 +24,8 @@ struct AppDestaque: Decodable {
     let descricao: String
 }
 
+struct AppGrupo: Decodable {
+    let id: String
+    let titulo: String
+    let apps: [App]
+}
