@@ -63,6 +63,7 @@ extension AppsVC {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
+        
         AppService.shared.buscaAppsEmDestaque { (apps, err) in
             appsEmDestaque = apps
             dispatchGroup.leave()
@@ -76,12 +77,12 @@ extension AppsVC {
         }
         dispatchGroup.enter()
         AppService.shared.buscaGrupo(tipo: "top-apps-gratis") { (grupo, err) in
-            appsQueAmamos = grupo
+            topAppsGratis = grupo
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
         AppService.shared.buscaGrupo(tipo: "top-apps-pagos") { (grupo, err) in
-            appsQueAmamos = grupo
+            topAppsPagos = grupo
             dispatchGroup.leave()
         }
         
@@ -103,6 +104,7 @@ extension AppsVC {
                 self.appsGrupos.append(apps)
             }
             
+            self.activityIndicatorView.stopAnimating()// esconder o loading 
             self.collectionView.reloadData()
         }
     
@@ -159,6 +161,11 @@ extension AppsVC {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGrupoCell
         cell.grupo = self.appsGrupos[indexPath.item]
+        cell.appsGrupoHorizontalVC.callback = { (app) in
+            let appDetalheVC = AppDetalheVC()
+            self.navigationController?.pushViewController(appDetalheVC, animated: true)
+            
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
