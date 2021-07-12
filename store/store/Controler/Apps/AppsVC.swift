@@ -12,6 +12,15 @@ class AppsVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let cellId = "cellId"
     let headerId = "headerId"
     
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(style: .large)
+        ai.color = UIColor.cinza
+        ai.startAnimating()
+        ai.hidesWhenStopped = true
+        return ai
+    }()
+    
+    
     var appsEmDestaque: [AppDestaque] = []
     var appsGrupos: [AppGrupo] = []
     
@@ -30,18 +39,76 @@ class AppsVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         collectionView.register(AppsGrupoCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
-        self.buscaAppsEmDestaque()
-        self.buscaGrupos(tipo: "apps-que-amamos")
-        self.buscaGrupos(tipo: "top-apps-gratis")
-        self.buscaGrupos(tipo: "top-apps-pagos")
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.centralizasSuperview()
+        
+        self.buscaApps()
+      //  self.buscaAppsEmDestaque()
+      //  self.buscaGrupos(tipo: "apps-que-amamos")
+      //  self.buscaGrupos(tipo: "top-apps-gratis")
+      //  self.buscaGrupos(tipo: "top-apps-pagos")
     }
     
 }
 
 
 extension AppsVC {
-    func buscaAppsEmDestaque() {
-        AppService.shared.buscaAppsEmDestaque { (apps,err) in
+    func buscaApps () {
+        
+        var appsEmDestaque: [AppDestaque]?
+        var appsQueAmamos: AppGrupo?
+        var topAppsGratis: AppGrupo?
+        var topAppsPagos: AppGrupo?
+        
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        AppService.shared.buscaAppsEmDestaque { (apps, err) in
+            appsEmDestaque = apps
+            dispatchGroup.leave()
+            
+        }
+        
+        dispatchGroup.enter()
+        AppService.shared.buscaGrupo(tipo: "apps-que-amamos") { (grupo, err) in
+            appsQueAmamos = grupo
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        AppService.shared.buscaGrupo(tipo: "top-apps-gratis") { (grupo, err) in
+            appsQueAmamos = grupo
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        AppService.shared.buscaGrupo(tipo: "top-apps-pagos") { (grupo, err) in
+            appsQueAmamos = grupo
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            
+            if let apps = appsEmDestaque {
+                self.appsEmDestaque = apps
+            }
+            
+            if let apps = appsQueAmamos {
+                self.appsGrupos.append(apps)
+            }
+            
+            if let apps = topAppsGratis {
+                self.appsGrupos.append(apps)
+            }
+            
+            if let apps = topAppsPagos {
+                self.appsGrupos.append(apps)
+            }
+            
+            self.collectionView.reloadData()
+        }
+    
+    
+    //func buscaAppsEmDestaque() {
+      /*  AppService.shared.buscaAppsEmDestaque { (apps,err) in
             if let err = err {
                 print(err)
                 return
@@ -67,10 +134,9 @@ extension AppsVC {
                 }
               }
             }
-        }
+        }*/
     }
 
-extension AppsVC {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsHeader
@@ -96,7 +162,7 @@ extension AppsVC {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.bounds.width, height: 250)
+        return .init(width: view.bounds.width, height: 280)
     }
 }
  
