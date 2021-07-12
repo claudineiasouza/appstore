@@ -9,6 +9,16 @@ import UIKit
 
 class AppsGrupoCell: UICollectionViewCell {
     
+    var grupo: AppGrupo? {
+        didSet {
+            if let grupo = grupo {
+                tituloLabel.text = grupo.titulo
+                appsGrupoHorizontalVC.apps = grupo.apps
+            }
+        }
+    }
+    
+    
     let tituloLabel: UILabel = .textboldLabel(text: "app grupo titulo", fontSize: 24)
     
     let appsGrupoHorizontalVC = AppsGrupoHorizontalVc()

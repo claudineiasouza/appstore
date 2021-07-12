@@ -31,7 +31,9 @@ class AppsVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         collectionView.register(AppsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
         self.buscaAppsEmDestaque()
-        self.buscaGrupos()
+        self.buscaGrupos(tipo: "apps-que-amamos")
+        self.buscaGrupos(tipo: "top-apps-gratis")
+        self.buscaGrupos(tipo: "top-apps-pagos")
     }
     
 }
@@ -52,8 +54,8 @@ extension AppsVC {
             }
         }
     }
-    func buscaGrupos () {
-        AppService.shared.buscaGrupo(tipo: "apps-que-amamos") { (grupo, err) in
+    func buscaGrupos (tipo: String) {
+        AppService.shared.buscaGrupo(tipo: tipo) { (grupo, err) in
             if let err = err {
                 print(err)
                 return
@@ -90,6 +92,7 @@ extension AppsVC {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGrupoCell
+        cell.grupo = self.appsGrupos[indexPath.item]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

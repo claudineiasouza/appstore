@@ -9,6 +9,18 @@ import UIKit
 
 class AppsGrupoHorizontalCell: UICollectionViewCell {
     
+    var app: App? {
+        didSet {
+            if let app = app {
+                iconoeImageView.sd_setImage(with: URL(string: app.iconeUrl), completed: nil)
+                tituloLabel.text = app.nome
+                empresaLabel.text = app.empresa
+            }
+        }
+        
+    }
+    
+    
     let iconoeImageView: UIImageView = .iconeImageView()
     let tituloLabel: UILabel = .textLabel(text: "App nome", fontSize: 18, numberOfLines: 2)
     let empresaLabel: UILabel = .textLabel(text: "App empresa", fontSize: 14)
