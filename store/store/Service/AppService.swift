@@ -11,7 +11,7 @@ class AppService {
     
     static let shared = AppService()
     
-    let API = "http://192.168.0.27/app-store/api/v1"
+    let API = "http://localhost/app-store/api/v1"
     
     func buscaAppsEmDestaque (completion: @escaping ([AppDestaque]?, Error?) -> () ) {
     guard let url = URL(string: "\(API)/apps/apps-em-destaque") else {return}
