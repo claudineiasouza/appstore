@@ -11,6 +11,7 @@ class AppDetalheVC: UICollectionViewController, UICollectionViewDelegateFlowLayo
     
     let headerId = "headerId"
     let descricaoId = "descricaoId"
+    let screenshotId = "screenshotId"
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -27,10 +28,11 @@ class AppDetalheVC: UICollectionViewController, UICollectionViewDelegateFlowLayo
         collectionView.backgroundColor = .white
         collectionView.register(AppDetalheHeaderCell.self, forCellWithReuseIdentifier: headerId)
         collectionView.register(AppDetalheDescricaoCell.self, forCellWithReuseIdentifier: descricaoId)
+        collectionView.register(AppDetalheScreenshotCell.self, forCellWithReuseIdentifier: screenshotId)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     override func collectionView( _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,6 +44,12 @@ class AppDetalheVC: UICollectionViewController, UICollectionViewDelegateFlowLayo
        
         if indexPath.item == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: descricaoId, for: indexPath) as! AppDetalheDescricaoCell
+            return cell
+        }
+        
+        if indexPath.item == 2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotId, for: indexPath) as! AppDetalheScreenshotCell
+            cell.backgroundColor = .red
             return cell
         }
         
@@ -60,6 +68,10 @@ class AppDetalheVC: UICollectionViewController, UICollectionViewDelegateFlowLayo
             
             let estimativaTamanhoCell = descricaocell.systemLayoutSizeFitting(CGSize(width: width, height: 1000))
             height = estimativaTamanhoCell.height // para ficar do tamanho do texto
+        }
+        
+        if indexPath.item == 2 {
+            height = 550
         }
         
         return .init(width: width, height: height)
