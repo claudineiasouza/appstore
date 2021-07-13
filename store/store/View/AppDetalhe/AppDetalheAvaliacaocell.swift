@@ -22,13 +22,13 @@ class AppDetalheAvaliacaocell: UICollectionViewCell, UICollectionViewDelegate, U
         layout.scrollDirection = .horizontal
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.decelerationRate = .fast
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(ComentarioCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(tituloLabel)
         tituloLabel.preencher(
@@ -58,8 +58,7 @@ class AppDetalheAvaliacaocell: UICollectionViewCell, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .yellow
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ComentarioCell
         return cell
     }
     
@@ -67,3 +66,45 @@ class AppDetalheAvaliacaocell: UICollectionViewCell, UICollectionViewDelegate, U
         return .init(width: collectionView.bounds.width - 40, height: collectionView.bounds.height)
     }
 }
+
+class ComentarioCell: UICollectionViewCell {
+    
+    let tituloLabel: UILabel = .textLabel(text: "Muito bom", fontSize: 16)
+    let comentarioLabel: UILabel = .textLabel(text: "Recomendo bastante esse app, esta me ajudando muito", fontSize: 16, numberOfLines: 0)
+    
+    let avaliacaoImageView: UIImageView =  {
+        let imagem = UIImageView()
+        imagem.size(size: .init(width: 120, height: 24))
+        imagem.contentMode = .scaleAspectFit
+        return imagem
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        backgroundColor = UIColor.background
+        layer.cornerRadius = 12
+        layer.masksToBounds = true
+        clipsToBounds = true
+        
+        avaliacaoImageView.image = UIImage(named: "avaliacao-4")
+        
+        let headerStackView = UIStackView(arrangedSubviews: [tituloLabel, avaliacaoImageView])
+        
+        let comentarioStackView = UIStackView(arrangedSubviews: [comentarioLabel])
+        comentarioStackView.alignment = .top
+        
+        let stackView = UIStackView(arrangedSubviews: [headerStackView, comentarioStackView])
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        
+        addSubview(stackView)
+        stackView.preencherSuperview(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+}
+
+
