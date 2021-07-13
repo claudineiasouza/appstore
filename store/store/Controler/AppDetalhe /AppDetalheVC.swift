@@ -49,7 +49,6 @@ class AppDetalheVC: UICollectionViewController, UICollectionViewDelegateFlowLayo
         
         if indexPath.item == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotId, for: indexPath) as! AppDetalheScreenshotCell
-            cell.backgroundColor = .red
             return cell
         }
         

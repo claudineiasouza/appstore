@@ -22,12 +22,12 @@ class AppDetalheScreenshotCell: UICollectionViewCell, UICollectionViewDelegate, 
         layout.scrollDirection = .horizontal
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .azul
+        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellid)
+        collectionView.register(screenshotCell.self, forCellWithReuseIdentifier: cellid)
         
         addSubview(titulolabel)
         titulolabel.preencher(
@@ -58,8 +58,7 @@ class AppDetalheScreenshotCell: UICollectionViewCell, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath)
-        cell.backgroundColor = .yellow
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! screenshotCell
         return cell
     }
     
@@ -67,3 +66,22 @@ class AppDetalheScreenshotCell: UICollectionViewCell, UICollectionViewDelegate, 
         return .init(width: 220, height: collectionView.bounds.height)
     }
 }
+
+class screenshotCell: UICollectionViewCell {
+    
+    let imageView: UIImageView = .sreenshotImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        imageView.image = UIImage(named: "screenshot")
+        
+        addSubview(imageView)
+        imageView.preencherSuperview()
+    }
+    
+    required init?(coder: NSCoder) {
+       fatalError()
+    }
+}
+
