@@ -50,7 +50,24 @@ class AppService {
                 return
             }
         }.resume()
-        
+    }
+        func buscaAppId (appId: Int, completion: @escaping (App?, Error?) -> ()) {
+            guard let url = URL(string: "\(API)/apps/\(appId)") else {return}
+    
+            URLSession.shared.dataTask(with: url) { (data, res, err) in
+                if let err = err {
+                    completion(nil, err)
+                    return
+                }
+                do {
+                    guard let data = data else {return}
+                    let app = try JSONDecoder().decode(App.self, from: data)
+                    completion(app, nil)
+                } catch let err {
+                  completion(nil, err)
+                    return
+                }
+            }.resume()
     }
     
 }
