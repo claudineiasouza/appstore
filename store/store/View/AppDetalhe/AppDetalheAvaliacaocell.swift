@@ -9,6 +9,14 @@ import UIKit
 
 class AppDetalheAvaliacaocell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var app: App? {
+        didSet {
+            if app != nil {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     let cellId = "cellId"
     
     let tituloLabel: UILabel = .textboldLabel(text: "Avaliações e opiniões", fontSize: 24)
@@ -54,11 +62,17 @@ class AppDetalheAvaliacaocell: UICollectionViewCell, UICollectionViewDelegate, U
     }
     
     func collectionView( _ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.app?.comentarios?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ComentarioCell
+        
+        if let comentario = self.app?.comentarios?[indexPath.item] {
+            cell.comentario = comentario
+            
+        }
+        
         return cell
     }
     
@@ -68,6 +82,16 @@ class AppDetalheAvaliacaocell: UICollectionViewCell, UICollectionViewDelegate, U
 }
 
 class ComentarioCell: UICollectionViewCell {
+    
+    var comentario: AppComentario? {
+        didSet {
+            if let comentario = comentario {
+                tituloLabel.text = comentario.titulo
+                comentarioLabel.text = comentario.descricao
+                avaliacaoImageView.image = UIImage(named: "avaliacao-\(comentario.avaliacao)")
+            }
+        }
+    }
     
     let tituloLabel: UILabel = .textLabel(text: "Muito bom", fontSize: 16)
     let comentarioLabel: UILabel = .textLabel(text: "Recomendo bastante esse app, esta me ajudando muito", fontSize: 16, numberOfLines: 0)

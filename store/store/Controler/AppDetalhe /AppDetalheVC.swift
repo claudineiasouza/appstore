@@ -86,11 +86,13 @@ class AppDetalheVC: UICollectionViewController, UICollectionViewDelegateFlowLayo
         
         if indexPath.item == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotId, for: indexPath) as! AppDetalheScreenshotCell
+            cell.app = self.app
             return cell
         }
         
         if indexPath.item == 3 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: avaliacaoid, for: indexPath) as! AppDetalheAvaliacaocell
+            cell.app = self.app 
             return cell
         }
         

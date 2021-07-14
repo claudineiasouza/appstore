@@ -9,6 +9,14 @@ import UIKit
 
 class AppDetalheScreenshotCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var app: App? {
+        didSet {
+            if app != nil {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     let cellid = "cellid"
     
     let titulolabel: UILabel = .textboldLabel(text: "Pré-visualizar", fontSize: 24)
@@ -56,11 +64,16 @@ class AppDetalheScreenshotCell: UICollectionViewCell, UICollectionViewDelegate, 
         fatalError()
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.app?.screenshotUrls?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! screenshotCell
+        
+        if let imageUrl = self.app?.screenshotUrls?[indexPath.item] {
+            cell.imageView.sd_setImage(with: URL(string: imageUrl), completed: nil)
+        }
+        
         return cell
     }
     
