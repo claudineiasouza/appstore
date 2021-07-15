@@ -45,6 +45,17 @@ extension HojeVC {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 24
     }
-    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath){
+            if let frame = cell.superview?.convert(cell.frame, to: nil) {
+                
+        let modalView = HojedetalheCv()
+                modalView.modalPresentationStyle = .overCurrentContext
+                
+                self.present(modalView, animated: false)
+                
+            }
+        }
+    }
 }
 
