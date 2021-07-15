@@ -56,7 +56,7 @@ extension HojeVC {
                 
                 self.present(modalView, animated: false) {
                     modalView.frame = frame
-                    modalView.animacao()
+                    modalView.adcionarUnico()
                 }
                 
             }

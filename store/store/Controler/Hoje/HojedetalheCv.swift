@@ -17,12 +17,18 @@ class HojedetalheCv: UIViewController {
     var widthConstraint: NSLayoutConstraint?
     var heightConstraint: NSLayoutConstraint?
     
+    let hojeDetalheUnicoVC = HojedetalheUnicoVC()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .clear // clear tranparente
+    }
+    
+    func adcionarUnico () {
+        self.centerView = hojeDetalheUnicoVC.view
+        self.animacao()
         
-        centerView = UIView()
     }
     
     func animacao () {
@@ -31,7 +37,6 @@ class HojedetalheCv: UIViewController {
         guard let frame = self.frame else {return}
         
         centerView.translatesAutoresizingMaskIntoConstraints = false
-        centerView.backgroundColor = .blue
         centerView.layer.cornerRadius = 16
         centerView.clipsToBounds = true
         

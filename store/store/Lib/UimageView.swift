@@ -41,7 +41,7 @@ extension UIImageView {
         if let named = named {
             imagem.image = UIImage(named: named)
         }
-        imagem.contentMode = .scaleToFill
+        imagem.contentMode = .scaleAspectFit
         return imagem
     }
     
