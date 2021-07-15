@@ -23,4 +23,12 @@ extension UIButton {
         
         return button
     }
+    
+    static func fecharButton () -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "fechar"), for: .normal)
+        button.layer.zPosition = 2
+        return button
+    }
+    
 }

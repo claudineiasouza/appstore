@@ -54,6 +54,10 @@ extension HojeVC {
         let modalView = HojedetalheCv()
                 modalView.modalPresentationStyle = .overCurrentContext
                 
+                modalView.handlerFechar = {
+                    self.tabBarController?.tabBar.isHidden = false
+                }
+                
                 self.present(modalView, animated: false) {
                     modalView.frame = frame
                     modalView.adcionarUnico()

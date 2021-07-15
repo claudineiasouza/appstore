@@ -9,6 +9,8 @@ import UIKit
 
 class HojedetalheCv: UIViewController {
     
+    let fecharButton: UIButton = .fecharButton()
+    
     var centerView: UIView?
     var frame: CGRect?
     
@@ -18,11 +20,33 @@ class HojedetalheCv: UIViewController {
     var heightConstraint: NSLayoutConstraint?
     
     let hojeDetalheUnicoVC = HojedetalheUnicoVC()
+    
+    var handlerFechar: (() -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .clear // clear tranparente
+    }
+    
+    func adicionarBotaoFechar () {
+        view.addSubview(fecharButton)
+        
+        fecharButton.alpha = 0
+        fecharButton.addTarget(self, action: #selector(handleFecharClique), for: .touchUpInside)
+        fecharButton.preencher(
+            top: self.view.safeAreaLayoutGuide.topAnchor,
+            leading: nil,
+            bottom: nil,
+            trailing: view.trailingAnchor,
+            padding: .init(top: 18, left: 0, bottom: 0, right: 24),
+            size: .init(width: 32, height: 32)
+        )
+        
+        UIView.animate(withDuration: 0.3, delay: 0.2, options: .showHideTransitionViews, animations: {
+            self.fecharButton.alpha = 1
+        }, completion: nil)
+            
     }
     
     func adcionarUnico () {
@@ -41,6 +65,7 @@ class HojedetalheCv: UIViewController {
         centerView.clipsToBounds = true
         
         view.addSubview(centerView)
+        self.adicionarBotaoFechar()
         
         self.topConstraint = centerView.topAnchor.constraint(equalTo: view.topAnchor, constant: frame.origin.y)
         self.leadingConstraint = centerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: frame.origin.x)
@@ -68,5 +93,11 @@ class HojedetalheCv: UIViewController {
         }, completion: nil)
             
         }
+    
+    @objc func handleFecharClique () {
+        self.handlerFechar?()
+        
+        self.dismiss(animated: false, completion: nil)
+    }
     }
     
