@@ -35,4 +35,14 @@ extension UIImageView {
         return imagem
         
     }
+    static func hojeImageView (named: String? = nil) -> UIImageView {
+        let imagem = UIImageView()
+        imagem.translatesAutoresizingMaskIntoConstraints = false
+        if let named = named {
+            imagem.image = UIImage(named: named)
+        }
+        imagem.contentMode = .scaleToFill
+        return imagem
+    }
+    
 }

@@ -25,8 +25,8 @@ class HojeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             navigationController?.navigationBar.isHidden = true // esconder a navegacao
             
             
-            collectionView.backgroundColor = .white
-            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+            collectionView.backgroundColor = .systemGroupedBackground
+            collectionView.register(HojeCell.self, forCellWithReuseIdentifier: cellId)
         }
       }
 
@@ -35,8 +35,7 @@ extension HojeVC {
         return 3
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HojeCell
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
