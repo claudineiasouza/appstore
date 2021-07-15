@@ -49,10 +49,15 @@ extension HojeVC {
         if let cell = collectionView.cellForItem(at: indexPath){
             if let frame = cell.superview?.convert(cell.frame, to: nil) {
                 
+                tabBarController?.tabBar.isHidden = true //remover a tabbar
+                
         let modalView = HojedetalheCv()
                 modalView.modalPresentationStyle = .overCurrentContext
                 
-                self.present(modalView, animated: false)
+                self.present(modalView, animated: false) {
+                    modalView.frame = frame
+                    modalView.animacao()
+                }
                 
             }
         }
