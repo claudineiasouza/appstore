@@ -9,10 +9,15 @@ import UIKit
 
 class HojedetalheUnicoVC: UITableViewController {
     
+    let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.register(HojeDetalheUnicoCell.self, forCellReuseIdentifier: cellId)
         
         self.adicionarHeader()
     }
@@ -27,5 +32,15 @@ class HojedetalheUnicoVC: UITableViewController {
         hojeCell.preencherSuperview()
         
         self.tableView.tableHeaderView = headerView
+    }
+}
+
+extension HojedetalheUnicoVC {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HojeDetalheUnicoCell
+        return cell 
     }
 }

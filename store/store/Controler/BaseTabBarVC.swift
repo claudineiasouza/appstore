@@ -8,6 +8,7 @@
 import UIKit
 
 class BaseBarTabVC: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

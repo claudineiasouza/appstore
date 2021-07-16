@@ -92,12 +92,33 @@ class HojedetalheCv: UIViewController {
             
         }, completion: nil)
             
+     }
+    
+    func animacaoFechar () {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .overrideInheritedCurve, animations: {
+            
+            if let frame = self.frame {
+                self.topConstraint?.constant = frame.origin.y
+                self.leadingConstraint?.constant = frame.origin.x
+                self.widthConstraint?.constant = frame.width
+                self.heightConstraint?.constant = frame.height
+            
+                self.centerView?.layer.cornerRadius = 16
+                
+                self.view.layoutIfNeeded()
+            }
+            
+        }) { (_) in
+            self.dismiss(animated: false, completion: nil)
         }
+      }
     
     @objc func handleFecharClique () {
+        self.fecharButton.isHidden = true
         self.handlerFechar?()
+        self.animacaoFechar()
         
-        self.dismiss(animated: false, completion: nil)
+    
     }
     }
     

@@ -23,9 +23,9 @@
 		A39D7D1D26A076520054E1EE /* HojeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D1C26A076520054E1EE /* HojeCell.swift */; };
 		A39D7D1F26A09D760054E1EE /* HojedetalheCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D1E26A09D760054E1EE /* HojedetalheCv.swift */; };
 		A39D7D2126A0AD680054E1EE /* HojedetalheUnicoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D2026A0AD680054E1EE /* HojedetalheUnicoVC.swift */; };
+		A39D7D2326A1F2DF0054E1EE /* HojeDetalheUnicoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D2226A1F2DF0054E1EE /* HojeDetalheUnicoCell.swift */; };
 		A39EC13126963BFC00029D52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13026963BFC00029D52 /* AppDelegate.swift */; };
 		A39EC13326963BFC00029D52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13226963BFC00029D52 /* SceneDelegate.swift */; };
-		A39EC13526963BFC00029D52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13426963BFC00029D52 /* ViewController.swift */; };
 		A39EC13826963BFC00029D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39EC13626963BFC00029D52 /* Main.storyboard */; };
 		A39EC13A26963C0000029D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A39EC13926963C0000029D52 /* Assets.xcassets */; };
 		A39EC13D26963C0000029D52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39EC13B26963C0000029D52 /* LaunchScreen.storyboard */; };
@@ -61,10 +61,10 @@
 		A39D7D1C26A076520054E1EE /* HojeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojeCell.swift; sourceTree = "<group>"; };
 		A39D7D1E26A09D760054E1EE /* HojedetalheCv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojedetalheCv.swift; sourceTree = "<group>"; };
 		A39D7D2026A0AD680054E1EE /* HojedetalheUnicoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojedetalheUnicoVC.swift; sourceTree = "<group>"; };
+		A39D7D2226A1F2DF0054E1EE /* HojeDetalheUnicoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojeDetalheUnicoCell.swift; sourceTree = "<group>"; };
 		A39EC12D26963BFC00029D52 /* store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39EC13026963BFC00029D52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A39EC13226963BFC00029D52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A39EC13426963BFC00029D52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A39EC13726963BFC00029D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A39EC13926963C0000029D52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A39EC13C26963C0000029D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				A39D7D1C26A076520054E1EE /* HojeCell.swift */,
+				A39D7D2226A1F2DF0054E1EE /* HojeDetalheUnicoCell.swift */,
 			);
 			path = Hoje;
 			sourceTree = "<group>";
@@ -178,7 +179,6 @@
 				A39EC1442696430900029D52 /* Controler */,
 				A39EC13026963BFC00029D52 /* AppDelegate.swift */,
 				A39EC13226963BFC00029D52 /* SceneDelegate.swift */,
-				A39EC13426963BFC00029D52 /* ViewController.swift */,
 				A39EC13626963BFC00029D52 /* Main.storyboard */,
 				A39EC13926963C0000029D52 /* Assets.xcassets */,
 				A39EC13B26963C0000029D52 /* LaunchScreen.storyboard */,
@@ -394,7 +394,7 @@
 				A36D86352698E4AA00CA1478 /* AppsGrupoHorizontalCell.swift in Sources */,
 				A39EC14D2696598400029D52 /* BuscaCell.swift in Sources */,
 				A39D7D1D26A076520054E1EE /* HojeCell.swift in Sources */,
-				A39EC13526963BFC00029D52 /* ViewController.swift in Sources */,
+				A39D7D2326A1F2DF0054E1EE /* HojeDetalheUnicoCell.swift in Sources */,
 				A39EC1492696543700029D52 /* BuscaVc.swift in Sources */,
 				A39EC1612697984E00029D52 /* AppsVC.swift in Sources */,
 				A39D7D11269DC6BC0054E1EE /* AppDetalheHeaderCell.swift in Sources */,
