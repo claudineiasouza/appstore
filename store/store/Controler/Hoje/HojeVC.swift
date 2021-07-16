@@ -11,6 +11,8 @@ class HojeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
     
+    var hojeApps: [HojeApp] = []
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -27,12 +29,26 @@ class HojeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             
             collectionView.backgroundColor = .systemGroupedBackground
             collectionView.register(HojeCell.self, forCellWithReuseIdentifier: cellId)
+            
+            self.buscaHojeDestaque()
+            
         }
-      }
-
+    
+    func buscaHojeDestaque () {
+        HojeService.shared.buscaHojeDestaque { (apps, err) in
+            if let apps = apps {
+                DispatchQueue.main.async {
+                    self.hojeApps = apps
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+        
+    }
+ }
 extension HojeVC {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.hojeApps.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HojeCell
