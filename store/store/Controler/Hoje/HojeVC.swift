@@ -10,6 +10,7 @@ import UIKit
 class HojeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
+    let multiploId = "multiploId"
     
     var hojeApps: [HojeApp] = []
     
@@ -29,6 +30,7 @@ class HojeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             
             collectionView.backgroundColor = .systemGroupedBackground
             collectionView.register(HojeCell.self, forCellWithReuseIdentifier: cellId)
+            collectionView.register(HojeMultiploCell.self, forCellWithReuseIdentifier: multiploId)
             
             self.buscaHojeDestaque()
             
@@ -51,12 +53,17 @@ extension HojeVC {
         return self.hojeApps.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HojeCell
-        
-        cell.hojeApp = self.hojeApps[indexPath.item]
-        
-        return cell
-    }
+       
+        if indexPath.item < 2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HojeCell
+            cell.hojeApp = self.hojeApps[indexPath.item]
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: multiploId, for: indexPath) as! HojeMultiploCell
+            return cell
+        }
+
+     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.bounds.width - 48, height: view.bounds.width + 48)
     }

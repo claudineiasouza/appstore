@@ -18,9 +18,10 @@ class HojeService {
             id: 1,
             categoria: "VIAJEM",
             titulo: "Explore o mundo \nsem medo",
-            imagemUrl: "detaque-1",
+            imagemUrl: "destaque-1",
             descricao: "Podemos viajar o mundo em busca de beleza, mas nunca a econtraremos se nao a carregarmos dentro de nos.",
-            backgroudColor: "#FFFFF"
+            backgroudColor: "#FFFFFF",
+            apps: nil
         ),
             HojeApp(
                 id: 2,
@@ -28,7 +29,17 @@ class HojeService {
                 titulo: "Mantenha corpo \nmente saudáveis",
                 imagemUrl: "destaque-2",
                 descricao: "Quanto mais se rema, maiores sao as chances de pegar melhores ondas, tento no surf quanto na vida." ,
-                backgroudColor: "#69CECE0"
+                backgroudColor: "#69CCE0",
+                apps: nil
+            ),
+            HojeApp(
+                id: 3,
+                categoria: "A LISTA DO DIA",
+                titulo: "Pedale melhor com \nApple Watch",
+                imagemUrl: nil,
+                descricao: nil,
+                backgroudColor: nil,
+                apps: []
             )
         ]
         

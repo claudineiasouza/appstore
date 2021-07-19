@@ -21,7 +21,7 @@ class HojeCell: UICollectionViewCell {
                     imagemView.image = UIImage(named: imagem)
                 }
                 if let background = hojeApp.backgroudColor {
-//                    self.backgroundColor = UIColor.white
+                  self.backgroundColor = UIColor.white
                     self.backgroundColor = UIColor(hexString: background)
                 }
         }
