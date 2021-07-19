@@ -52,6 +52,9 @@ extension HojeVC {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HojeCell
+        
+        cell.hojeApp = self.hojeApps[indexPath.item]
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -67,7 +70,7 @@ extension HojeVC {
                 
                 tabBarController?.tabBar.isHidden = true //remover a tabbar
                 
-        let modalView = HojedetalheCv()
+        let modalView = HojeDetalheVc()
                 modalView.modalPresentationStyle = .overCurrentContext
                 
                 modalView.handlerFechar = {
@@ -76,7 +79,7 @@ extension HojeVC {
                 
                 self.present(modalView, animated: false) {
                     modalView.frame = frame
-                    modalView.adcionarUnico()
+                    modalView.hojeApp = self.hojeApps[indexPath.item]
                 }
                 
             }

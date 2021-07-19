@@ -9,6 +9,24 @@ import UIKit
 
 class HojeCell: UICollectionViewCell {
     
+    var hojeApp: HojeApp? {
+        didSet {
+            if let hojeApp = hojeApp {
+            
+                categoriaLabel.text = hojeApp.categoria
+                tituloLabel.text = hojeApp.titulo
+                descricaoLabel.text = hojeApp.descricao
+                
+                if let imagem = hojeApp.imagemUrl {
+                    imagemView.image = UIImage(named: imagem)
+                }
+                if let background = hojeApp.backgroudColor {
+//                    self.backgroundColor = UIColor.white
+                    self.backgroundColor = UIColor(hexString: background)
+                }
+        }
+      }
+    }
     let categoriaLabel: UILabel = .textLabel(text: "VIAGEM", fontSize: 18)
     let tituloLabel: UILabel = .textboldLabel(text: "Explore o mundo \nsem medo", fontSize: 28, numberOfLines: 2)
     let imagemView: UIImageView = .hojeImageView(named: "destaque-1")
@@ -34,7 +52,14 @@ class HojeCell: UICollectionViewCell {
         stackView.spacing = 8
         
         addSubview(stackView)
-        stackView.preencherSuperview(padding: .init(top: 24, left: 24, bottom: 24, right: 24))
+       // stackView.preencherSuperview(padding: .init(top: 24, left: 24, bottom: 24, right: 24))
+        stackView.preencher(
+            top: self.safeAreaLayoutGuide.topAnchor,
+            leading: leadingAnchor,
+            bottom: bottomAnchor,
+            trailing: trailingAnchor,
+            padding: .init(top: 24, left: 24, bottom: 24, right: 24)
+        )
         
     }
     

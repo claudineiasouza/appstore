@@ -10,6 +10,7 @@ import UIKit
 class HojedetalheUnicoVC: UITableViewController {
     
     let cellId = "cellId"
+    var hojeApp: HojeApp? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,7 @@ class HojedetalheUnicoVC: UITableViewController {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
+        tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(HojeDetalheUnicoCell.self, forCellReuseIdentifier: cellId)
         
         self.adicionarHeader()
@@ -26,6 +28,7 @@ class HojedetalheUnicoVC: UITableViewController {
         let headerView = UIView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width + 400))
         
         let hojeCell = HojeCell()
+        hojeCell.hojeApp = self.hojeApp
         hojeCell.layer.cornerRadius = 0
         
         headerView.addSubview(hojeCell)

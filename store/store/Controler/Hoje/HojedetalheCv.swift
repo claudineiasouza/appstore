@@ -7,7 +7,18 @@
 
 import UIKit
 
-class HojedetalheCv: UIViewController {
+
+class HojeDetalheVc: UIViewController {
+    
+    var hojeApp: HojeApp? {
+        didSet {
+            
+            if hojeApp != nil {
+                self.adcionarUnico()
+            }
+            
+        }
+    }
     
     let fecharButton: UIButton = .fecharButton()
     
@@ -50,6 +61,7 @@ class HojedetalheCv: UIViewController {
     }
     
     func adcionarUnico () {
+        hojeDetalheUnicoVC.hojeApp = self.hojeApp
         self.centerView = hojeDetalheUnicoVC.view
         self.animacao()
         
