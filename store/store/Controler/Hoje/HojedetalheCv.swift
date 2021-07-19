@@ -73,6 +73,7 @@ class HojeDetalheVc: UIViewController {
     }
         
         func adicionarMultiplo () {
+            hojeDetalheMultiploVC.hojeApp = self.hojeApp
         self.centerView = hojeDetalheMultiploVC.view
         self.animacao()
         

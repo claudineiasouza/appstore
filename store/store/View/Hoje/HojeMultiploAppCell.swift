@@ -24,6 +24,9 @@ class HojeMultiploAppCell: UITableViewCell {
     let empresaLabel: UILabel = .textLabel(text: "App empresa", fontSize: 14)
     let obterButton: UIButton = .obterButton()
     
+    var leadingConstraint: NSLayoutConstraint?
+    var trailingConstraint: NSLayoutConstraint?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -39,8 +42,20 @@ class HojeMultiploAppCell: UITableViewCell {
         stackView.alignment = .center
         
         addSubview(stackView)
-        stackView.preencherSuperview(padding: .init(top: 14, left: 0, bottom: 14, right: 0))
+       // stackView.preencherSuperview(padding: .init(top: 14, left: 0, bottom: 14, right: 0))
+        stackView.preencher(
+            top: topAnchor,
+            leading: nil,
+            bottom: bottomAnchor,
+            trailing: nil,
+            padding: .init(top: 14, left: 0, bottom: 14, right: 0)
+            )
         
+        self.leadingConstraint = stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0)
+        self.trailingConstraint = stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
+        
+        self.leadingConstraint?.isActive = true
+        self.trailingConstraint?.isActive = true
     }
     
     required init?(coder: NSCoder) {
