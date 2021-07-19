@@ -36,6 +36,8 @@ class HojeMultiploCell: UICollectionViewCell, UITableViewDelegate, UITableViewDa
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isUserInteractionEnabled = false
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 64, bottom: 0, right: 0)
         
         tableView.register(HojeMultiploAppCell.self, forCellReuseIdentifier: cellId)
         
@@ -70,6 +72,7 @@ class HojeMultiploCell: UICollectionViewCell, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HojeMultiploAppCell
+        cell.app = self.hojeApp?.apps?[indexPath.item]
         return cell
     }
     

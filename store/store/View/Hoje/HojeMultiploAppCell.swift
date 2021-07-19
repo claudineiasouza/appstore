@@ -27,6 +27,8 @@ class HojeMultiploAppCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        selectionStyle = .none
+        
         let tituloEmpresaStackView = UIStackView(arrangedSubviews: [tituloLabel, empresaLabel])
         tituloEmpresaStackView.spacing = 4
         tituloEmpresaStackView.axis = .vertical

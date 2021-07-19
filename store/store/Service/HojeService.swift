@@ -13,7 +13,7 @@ class HojeService {
     
     func buscaHojeDestaque (completion: @escaping ([HojeApp]?, Error?) -> ()) {
         
-        let hojeApps: Array<HojeApp> = [
+        var hojeApps: Array<HojeApp> = [
         HojeApp(
             id: 1,
             categoria: "VIAJEM",
@@ -31,19 +31,27 @@ class HojeService {
                 descricao: "Quanto mais se rema, maiores sao as chances de pegar melhores ondas, tento no surf quanto na vida." ,
                 backgroudColor: "#69CCE0",
                 apps: nil
-            ),
-            HojeApp(
-                id: 3,
-                categoria: "A LISTA DO DIA",
-                titulo: "Pedale melhor com \nApple Watch",
-                imagemUrl: nil,
-                descricao: nil,
-                backgroudColor: nil,
-                apps: []
             )
         ]
         
-        completion(hojeApps, nil)
+        AppService.shared.buscaApps { (apps, err) in
+            if let apps = apps {
+                hojeApps.append(
+                    HojeApp(
+                        id: 3,
+                        categoria: "A LISTA DO DIA",
+                        titulo: "Pedale melhor com \nApple Watch",
+                        imagemUrl: nil,
+                        descricao: nil,
+                        backgroudColor: nil,
+                        apps: apps
+                )
+                )
+            }
+            completion(hojeApps, nil)
+        }
+        
+     
         
     }
 }

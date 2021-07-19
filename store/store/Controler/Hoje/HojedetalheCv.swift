@@ -13,10 +13,14 @@ class HojeDetalheVc: UIViewController {
     var hojeApp: HojeApp? {
         didSet {
             
-            if hojeApp != nil {
-                self.adcionarUnico()
-            }
-            
+            if let hojeApp = hojeApp {
+                
+                if hojeApp.apps == nil {
+                    self .adicionarUnico()
+                } else {
+                    self.adicionarMultiplo()
+                }
+         }
         }
     }
     
@@ -31,6 +35,7 @@ class HojeDetalheVc: UIViewController {
     var heightConstraint: NSLayoutConstraint?
     
     let hojeDetalheUnicoVC = HojedetalheUnicoVC()
+    let hojeDetalheMultiploVC = HojeDetalheMultiploVC()
     
     var handlerFechar: (() -> ())?
 
@@ -60,12 +65,19 @@ class HojeDetalheVc: UIViewController {
             
     }
     
-    func adcionarUnico () {
+    func adicionarUnico () {
         hojeDetalheUnicoVC.hojeApp = self.hojeApp
         self.centerView = hojeDetalheUnicoVC.view
         self.animacao()
         
     }
+        
+        func adicionarMultiplo () {
+        self.centerView = hojeDetalheMultiploVC.view
+        self.animacao()
+        
+        }
+        
     
     func animacao () {
         
