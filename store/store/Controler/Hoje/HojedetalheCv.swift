@@ -122,7 +122,7 @@ class HojeDetalheVc: UIViewController {
         
         view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .overrideInheritedCurve, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.7,initialSpringVelocity: 0.7, options: .overrideInheritedCurve, animations: {
             
             self.topConstraint?.constant = 0
             self.leadingConstraint?.constant = 0
@@ -138,7 +138,11 @@ class HojeDetalheVc: UIViewController {
      }
     
     func animacaoFechar () {
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .overrideInheritedCurve, animations: {
+        
+        self.hojeDetalheMultiploVC.tableView.setContentOffset(CGPoint(x: 0, y: -self.hojeDetalheMultiploVC.tableView.safeAreaInsets.top), animated: false)
+        self.hojeDetalheMultiploVC.tableView.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .overrideInheritedCurve, animations: {
             
             if let frame = self.frame {
                 self.topConstraint?.constant = frame.origin.y
@@ -147,6 +151,8 @@ class HojeDetalheVc: UIViewController {
                 self.heightConstraint?.constant = frame.height
             
                 self.centerView?.layer.cornerRadius = 16
+                
+                self.hojeDetalheUnicoVC.tableView.contentOffset = .zero
                 
                 self.view.layoutIfNeeded()
             }
