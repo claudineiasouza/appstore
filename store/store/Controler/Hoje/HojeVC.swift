@@ -85,7 +85,11 @@ extension HojeVC {
                     self.tabBarController?.tabBar.isHidden = false
                 }
                 
-                self.present(modalView, animated: false) {
+                let modalNav = UINavigationController(rootViewController: modalView)
+                modalNav.modalPresentationStyle = .overCurrentContext
+                modalNav.view.backgroundColor = .clear
+                
+                self.present(modalNav, animated: false) {
                     modalView.frame = frame
                     modalView.hojeApp = self.hojeApps[indexPath.item]
                 }

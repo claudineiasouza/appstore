@@ -41,8 +41,16 @@ class HojeDetalheVc: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+
         view.backgroundColor = .clear // clear tranparente
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
     }
     
     func adicionarBotaoFechar () {
@@ -74,6 +82,16 @@ class HojeDetalheVc: UIViewController {
         
         func adicionarMultiplo () {
             hojeDetalheMultiploVC.hojeApp = self.hojeApp
+            hojeDetalheMultiploVC.handlerclique = { app in
+            
+                let detalheVC = AppDetalheVC()
+                detalheVC.title = app.nome
+                detalheVC.appId = app.id
+                detalheVC.app = app
+                
+                self.navigationController?.pushViewController(detalheVC, animated: true)
+                
+            }
         self.centerView = hojeDetalheMultiploVC.view
         self.animacao()
         
