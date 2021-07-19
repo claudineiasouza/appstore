@@ -9,7 +9,18 @@ import UIKit
 
 class HojeMultiploCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
     
+    var hojeApp: HojeApp? {
+        didSet {
+            if let hojeApp = hojeApp {
+                categoriaLabel.text = hojeApp.categoria
+                tituloLabel.text = hojeApp.titulo
+                tableView.reloadData()
+            }
+        }
+    }
+    
     let cellId = "cellId"
+    
     let categoriaLabel: UILabel = .textLabel(text: "VIAGEM", fontSize: 18)
     let tituloLabel: UILabel = .textLabel(text: "Explore o mundo \nsem medo", fontSize: 28, numberOfLines: 2)
     
@@ -26,7 +37,7 @@ class HojeMultiploCell: UICollectionViewCell, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(HojeMultiploAppCell.self, forCellReuseIdentifier: cellId)
         
         let stackView = UIStackView(arrangedSubviews: [categoriaLabel, tituloLabel])
         stackView.axis = .vertical
@@ -55,10 +66,10 @@ class HojeMultiploCell: UICollectionViewCell, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.hojeApp?.apps?.count ?? 0 
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HojeMultiploAppCell
         return cell
     }
     

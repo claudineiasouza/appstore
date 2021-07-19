@@ -27,6 +27,7 @@
 		A39D7D2526A1F9F90054E1EE /* HojeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D2426A1F9F90054E1EE /* HojeService.swift */; };
 		A39D7D2726A1FA980054E1EE /* HojeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D2626A1FA980054E1EE /* HojeApp.swift */; };
 		A39D7D2926A5C9F80054E1EE /* HojeMultiploCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D2826A5C9F80054E1EE /* HojeMultiploCell.swift */; };
+		A39D7D2B26A5D08C0054E1EE /* HojeMultiploAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D7D2A26A5D08C0054E1EE /* HojeMultiploAppCell.swift */; };
 		A39EC13126963BFC00029D52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13026963BFC00029D52 /* AppDelegate.swift */; };
 		A39EC13326963BFC00029D52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC13226963BFC00029D52 /* SceneDelegate.swift */; };
 		A39EC13826963BFC00029D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39EC13626963BFC00029D52 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		A39D7D2426A1F9F90054E1EE /* HojeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojeService.swift; sourceTree = "<group>"; };
 		A39D7D2626A1FA980054E1EE /* HojeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojeApp.swift; sourceTree = "<group>"; };
 		A39D7D2826A5C9F80054E1EE /* HojeMultiploCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojeMultiploCell.swift; sourceTree = "<group>"; };
+		A39D7D2A26A5D08C0054E1EE /* HojeMultiploAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojeMultiploAppCell.swift; sourceTree = "<group>"; };
 		A39EC12D26963BFC00029D52 /* store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39EC13026963BFC00029D52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A39EC13226963BFC00029D52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				A39D7D1C26A076520054E1EE /* HojeCell.swift */,
 				A39D7D2226A1F2DF0054E1EE /* HojeDetalheUnicoCell.swift */,
 				A39D7D2826A5C9F80054E1EE /* HojeMultiploCell.swift */,
+				A39D7D2A26A5D08C0054E1EE /* HojeMultiploAppCell.swift */,
 			);
 			path = Hoje;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				A39D7D2926A5C9F80054E1EE /* HojeMultiploCell.swift in Sources */,
 				A39EC15E2696821D00029D52 /* App.swift in Sources */,
 				A36D86352698E4AA00CA1478 /* AppsGrupoHorizontalCell.swift in Sources */,
+				A39D7D2B26A5D08C0054E1EE /* HojeMultiploAppCell.swift in Sources */,
 				A39EC14D2696598400029D52 /* BuscaCell.swift in Sources */,
 				A39D7D1D26A076520054E1EE /* HojeCell.swift in Sources */,
 				A39D7D2326A1F2DF0054E1EE /* HojeDetalheUnicoCell.swift in Sources */,

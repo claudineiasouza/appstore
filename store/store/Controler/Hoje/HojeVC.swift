@@ -60,6 +60,7 @@ extension HojeVC {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: multiploId, for: indexPath) as! HojeMultiploCell
+            cell.hojeApp = self.hojeApps[indexPath.item]
             return cell
         }
 
